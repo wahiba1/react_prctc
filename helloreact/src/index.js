@@ -75,19 +75,52 @@ import './index.css';
   //   number={3}/>,
   //   document.getElementById("root") 
   // )
-function Lake({name}) {
-  return <h1>{ name}</h1>;
+// function Lake({name}) {
+//   return <h1>{ name}</h1>;
+// }
+// const lakeList = [
+//   "Echo Lake",
+//   "Maud Lake",
+//   "Cascade Lake"
+// ];
+const lakeList = [
+  {id : "1", name: "Echo", trailhead: "Echo"},
+  {id: "2", name: "Maud", trailhead: "Wrights"},
+  {id: "3", name: "Velma", trailhead: "Bayview"}
+];
+const list = [1,2,3,4,5];
+
+//   function App({lakes}) {
+//     return (
+//     // <div>
+//     //   <Lake name="Lake Tahoe" />
+//     //   <Lake name="Angora Lake" />
+//     //   <Lake name="Shirley Lake" />
+//     // </div>
+//       // <ul>
+//       //   {props.lakes.map(lake => (<li>{lake}</li>))}
+//       // </ul>
+
+// <div>
+//         {lakes.map(lake => <div key={lake.id}>
+//           <h2>{lake.name}</h2>
+//           <p>Accessed by: {lake.trailhead}</p>
+//         </div>)}
+//       </div>
+//     ); 
+//   }
+
+function App({items})
+{
+  return(
+    <ul>
+      {items.map((item)=> (
+        <li key={item.toString()}>{item}</li>
+      ))}
+    </ul>
+  )
 }
-  function App() {
-    return (
-    <div>
-      <Lake name="Lake Tahoe" />
-      <Lake name="Angora Lake" />
-      <Lake name="Shirley Lake" />
-    </div>
-    );
-  }
   ReactDOM.render(
-    <App />,
+    <App lakes={lakeList} />,
     document.getElementById("root")
   );
